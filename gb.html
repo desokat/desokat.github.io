@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <script>
+    function myDate() {
+        var volume = 50;
+        var A = new Date();
+        var today = A.getDate();
+        var monthLength = new Date(A.getFullYear(), A.getMonth()+1, 0).getDate();
+        var result = (Math.round(volume / monthLength * today * 1000)/1000).toFixed(3);
+        document.write(volume + " GB / " + monthLength + " Tage = " + result + " GB");
+    }
+</script>
+<title>Demo</title>
+</head>
+<body onload="myDate()"></body>
+</html>
