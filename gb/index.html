@@ -9,6 +9,7 @@
         var monthLength = new Date(A.getFullYear(), A.getMonth()+1, 0).getDate();
         var result = (Math.round(volume / monthLength * today * 1000)/1000).toFixed(3);
         document.write(volume + " GB / " + monthLength + " Tage * " + today + " = " + result + " GB");
+    }
 </script>
 <title>Demo</title>
 </head>
