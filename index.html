@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html>
-	<head>
-    <script>
-    function myDate() {
-        var volume = 50;
-        var A = new Date();
-        var today = A.getDate();
-        var monthLength = new Date(A.getFullYear(), A.getMonth()+1, 0).getDate();
-        var result = (Math.round(volume / monthLength * today * 1000)/1000).toFixed(3);
-        document.write(volume + " GB / " + monthLength + " Tage * " + today + " = " + result + " GB");
-    }
+<head>
+<script>   
+function change() {
+    var elem = document.getElementById('button').innerHTML;
+    document.getElementById('button').innerHTML = (elem == "show 50GB" ? "show 70GB" : "show 50GB");
+    myDate(elem == "show 50GB" ? 50 : 70);
+}    
+
+function myDate(volume) {
+    var A = new Date();
+    var today = A.getDate();
+    var monthLength = new Date(A.getFullYear(), A.getMonth()+1, 0).getDate();
+    var result = (Math.round(volume / monthLength * today * 1000)/1000).toFixed(3);
+    document.getElementById('divtest').innerHTML = volume + " GB / " + monthLength + " Tage * " + "<span style='color:blue;'>" + today + "</span>" + " = " + result + " GB";
+}
 </script>
+
 <title>Demo</title>
 </head>
-<body onload="myDate()"></body>
+<body onload="myDate(50)"> 
+    <button onclick="change()" id="button">show 70GB</button>
+    <div id="divtest" style="margin-top: 10px;"></div>
+</body>
 </html>
