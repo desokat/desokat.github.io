@@ -19,12 +19,6 @@ function myDate(volume) {
     document.getElementById('result').innerHTML = result + "<span style='font-size: 24px;'>" + " GB" + "</span>";
     document.getElementById('info').innerHTML = volume + " GB / " + monthLength + " days * " + today + "<div style='margin-top: 3px;'>" + "current month: " + arrayOfMonths[A.getMonth()] + ", " + monthLength + " days" + "</div>";
 }
-
-function showDate() {
-    var A = new Date();
-    
-    document.getElementById("info").innerHTML = A.getDate() + ". " + arrayOfMonths[A.getMonth()] + " " + A.getFullYear();
-}
 </script>
     
 <style>
