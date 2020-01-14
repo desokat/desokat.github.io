@@ -15,9 +15,9 @@ function myDate(volume) {
     var today = A.getDate();
     var monthLength = new Date(A.getFullYear(), A.getMonth()+1, 0).getDate();
     var result = (Math.round(volume / monthLength * today * 1000)/1000).toFixed(3);
-    var arrayOfMonths = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+    //var arrayOfMonths = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
     document.getElementById('result').innerHTML = result + "<span style='font-size: 24px;'>" + " GB" + "</span>";
-    document.getElementById('info').innerHTML = volume + " GB / " + monthLength + " days * " + today + "<div style='margin-top: 3px;'>" + "current month: " + arrayOfMonths[A.getMonth()] + ", " + monthLength + " days" + "</div>";
+    document.getElementById('resume').innerHTML = "VOL: " + volume + " | " + "DAY: " + today + "/" + monthLength; 
 }
 </script>
 <style>
@@ -29,7 +29,7 @@ function myDate(volume) {
     
     #result { padding: 20px 0 10px 0; font-size: 45px; }
     
-    #info { font-size: 15px; margin-bottom: 20px; }
+    #resume { font-size: 15px; margin-bottom: 20px; }
     
     #button { 
         color: rgb(245,245,245);
@@ -47,7 +47,7 @@ function myDate(volume) {
     <section class="wrapper">
         <div class="intro">Allowed data usage until today:</div>
         <div id="result"></div>
-        <div id="info"></div>
+        <div id="resume"></div>
         <div onclick="change()" id="button">show 70GB</div>
     </section>
 </body>
