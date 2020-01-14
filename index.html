@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>   
 function change() {
     var elem = document.getElementById('button').innerHTML;
@@ -13,14 +15,34 @@ function myDate(volume) {
     var today = A.getDate();
     var monthLength = new Date(A.getFullYear(), A.getMonth()+1, 0).getDate();
     var result = (Math.round(volume / monthLength * today * 1000)/1000).toFixed(3);
-    document.getElementById('divtest').innerHTML = volume + " GB / " + monthLength + " Tage * " + "<span style='color:blue;'>" + today + "</span>" + " = " + result + " GB";
+    var arrayOfMonths = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+    document.getElementById('result').innerHTML = result + "<span style='font-size: 24px;'>" + " GB" + "</span>";
+    document.getElementById('info').innerHTML = volume + " GB / " + monthLength + " days * " + today + "<div style='margin-top: 3px;'>" + "current month: " + arrayOfMonths[A.getMonth()] + ", " + monthLength + " days" + "</div>";
+}
+
+function showDate() {
+    var A = new Date();
+    
+    document.getElementById("info").innerHTML = A.getDate() + ". " + arrayOfMonths[A.getMonth()] + " " + A.getFullYear();
 }
 </script>
-
-<title>Demo</title>
+    
+<style>
+    body { text-align: center; background-color: #0a0a0a; color: rgb(245,245,245); font-family: monospace; margin: 15px 0; }
+    
+    button { border: 0; padding: 2px 8px; background-color: rgb(245,245,245); border-radius: 10px; font-family: inherit; cursor: pointer; }
+    
+    .intro { font-size: 15px; font-style: italic; }
+    
+    #result { padding: 10px 0; font-size: 45px; }
+    
+    #info { font-size: 15px; margin-bottom: 20px; }
+</style>
 </head>
 <body onload="myDate(50)"> 
+    <div class="intro">Allowed data usage until today:</div>
+    <div id="result"></div>
+    <div id="info"></div>
     <button onclick="change()" id="button">show 70GB</button>
-    <div id="divtest" style="margin-top: 10px;"></div>
 </body>
 </html>
