@@ -21,21 +21,34 @@ function myDate(volume) {
 }
 </script>
 <style>
-    body { text-align: center; background-color: #0a0a0a; color: rgb(245,245,245); font-family: monospace; margin: 15px 0; }
+    body { text-align: center; background-color: #0a0a0a; color: #F5F5F5; font-family: monospace; margin: 15px 0; }
     
-    button { border: 0; padding: 2px 8px; background-color: rgb(245,245,245); border-radius: 10px; font-family: inherit; cursor: pointer; }
+    .wrapper { display: inline-block; }
     
     .intro { font-size: 15px; font-style: italic; }
     
-    #result { padding: 10px 0; font-size: 45px; }
+    #result { padding: 20px 0 10px 0; font-size: 45px; }
     
     #info { font-size: 15px; margin-bottom: 20px; }
+    
+    #button { 
+        color: rgb(245,245,245);
+        border: 1px solid #F5F5F5;
+        font-size: 16px; 
+        text-transform: uppercase; 
+        font-weight: bold; 
+        letter-spacing: 1px; 
+        padding: 8px; 
+        cursor: pointer; 
+    }
 </style>
 </head>
 <body onload="myDate(50)"> 
-    <div class="intro">Allowed data usage until today:</div>
-    <div id="result"></div>
-    <div id="info"></div>
-    <button onclick="change()" id="button">show 70GB</button>
+    <section class="wrapper">
+        <div class="intro">Allowed data usage until today:</div>
+        <div id="result"></div>
+        <div id="info"></div>
+        <div onclick="change()" id="button">show 70GB</div>
+    </section>
 </body>
 </html>
